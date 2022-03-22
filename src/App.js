@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Test from './front/Test';
 import Home from './front/Home';
+import UserTest from './front/UserTest';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/test' element={<Test/>}/>
         <Route path='/home' element={<Home/>}/>
+        <Route path='/home/:id' element={<UserTest/>}/>
         <Route path='*' element={<PageNotFound/>}/>
       </Routes>
       }/>

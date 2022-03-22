@@ -24,7 +24,7 @@ import Home from './Home';
 import AccessTime from '@mui/icons-material/AccessTime'
 
 import {
-    NavLink
+    NavLink, Link
   } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -138,7 +138,12 @@ const  NavBar = (props) => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div" align="center">Subscriptor Manager</Typography>
+                    
+                    <Link to="/">
+                    <Typography variant="h6" noWrap component="div" align="center">Subscriptor Manager
+                    </Typography>
+                    </Link>
+                        
                 </Toolbar>
             </AppBar>
             <Drawer variant="permanent" open={open}>
