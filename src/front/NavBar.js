@@ -19,7 +19,13 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Welcome from './Welcome';
 import Test from './Test';
-import Home from '../Home';
+import Home from './Home';
+//import DrawerData from './DrawerData';
+import AccessTime from '@mui/icons-material/AccessTime'
+
+import {
+    NavLink
+  } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -82,13 +88,40 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 );
 
-const  NavBar = () => {
+const  NavBar = (props) => {
     
     const theme = useTheme();
     const [open, setOpen] = useState(false);
 
     const handleDrawerOpen = () => { setOpen(true) }
     const handleDrawerClose = () => { setOpen(false) }
+
+    const DrawerData = [
+        {
+            id:     1,
+            text:   "Welcome",
+            url:    "",
+            icon:   <AccessTime/>,
+        },
+        {
+            id:     2,
+            text:   "Login",
+            url:    "login",
+            icon:   <AccessTime/>,
+        },
+        {
+            id:     3,
+            text:   "Test",
+            url:    "test",
+            icon:   <AccessTime/>,
+        },
+        {
+            id:     4,
+            text:   "Home",
+            url:    "home",
+            icon:   <AccessTime/>,
+        }
+    ]
 
     return (
         <Box sx={{ display: 'flex' }}>
@@ -116,31 +149,22 @@ const  NavBar = () => {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
+                    {DrawerData.map((item) => {
+                        const {text, icon, url } = item;
+                        return(
+                            <ListItem button key={text}>
+                                <NavLink to={url}>
+                                    <ListItemIcon >{icon}</ListItemIcon>
+                                    <ListItemText primary={text} />
+                                </NavLink>
+                            </ListItem>
+                        );
+                    })}
                 </List>
             </Drawer>
             <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                 <DrawerHeader />
-                <Welcome/>
-                <Home/>
+               {props.main}
             </Box>
         </Box>
     );
