@@ -11,7 +11,7 @@ const Home = () => {
     }, [])
 
     const obtenerDatos = async () => {
-        const data = await fetch('https://jsonplaceholder.typicode.com/users')
+        const data = await fetch('localhost:8080/Api/User')
         const users = await data.json()
         //console.log(users)
         setEquipo(users)
@@ -23,7 +23,7 @@ const Home = () => {
             <ul>
                 {
                     equipo.map(item=>(
-                        <li key={item.id}>{item.name} - {item.email}</li>
+                        <li key={item.iduser}>{item.usuario} - {item.nombre}</li>
                     ))
                 }
             </ul>
