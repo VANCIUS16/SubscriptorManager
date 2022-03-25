@@ -25,8 +25,7 @@ export default function Login() {
 
     return (
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
-            
-                <Card sx={{height: 500, width: 500,}}>
+            <Card sx={{height: 500, width: 500,}}>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div" align="center">
                         <AccountCircleIcon color="primary" fontSize="large"/>
@@ -52,12 +51,13 @@ export default function Login() {
                     <Typography variant="body2" color="error" align="left">{ErrorMessage1}</Typography>
                     <Typography variant="body2" color="error" align="left">{ErrorMessage2}</Typography>
                     <Typography component="div" align="center">
-                    <ButtonPrimary
-                    text="Aceptar"
-                    color={ButtonError}
-                    variant="outlined"
-                    click={() => {SendData();}}
-                    />
+                        <ButtonPrimary
+                        text="Aceptar"
+                        color={ButtonError}
+                        variant="outlined"
+                        error="true"
+                        click={() => {SendData();}}
+                        />
                     </Typography>
                 </CardContent>
             </Card>
