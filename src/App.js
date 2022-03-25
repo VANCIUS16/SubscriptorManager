@@ -10,6 +10,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Config from './front/settings/Config';
 import ProtectedRoutes from './back/ProtectedRoutes';
+import Inicio from './front/common/Inicio';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           {/*<Route path='/login'    element={<Login/>}/>*/}
           <Route                    element={<ProtectedRoutes/>}>
             <Route path='/'         element={<Welcome/>}/>
+            <Route path='/inicio'   element={<Inicio/>}/>
             <Route path='/test'     element={<Test/>}/>
             <Route path='/config'   element={<Config/>}/>
             <Route path='/home'     element={<Home/>}/>

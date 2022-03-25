@@ -19,6 +19,8 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import SettingsIcon from '@mui/icons-material/Settings';
+import HomeIcon from '@mui/icons-material/Home';
 
 import AccessTime from '@mui/icons-material/AccessTime'
 import { NavLink, Link } from "react-router-dom";
@@ -26,6 +28,8 @@ import { NavLink, Link } from "react-router-dom";
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+
+import Grid from '@mui/material/Grid';
 
 const drawerWidth = 200;
 
@@ -93,9 +97,9 @@ const  NavBar = (props) => {
     const DrawerData = [
         {
             id:     1,
-            text:   "Welcome",
-            url:    "",
-            icon:   <AccessTime/>,
+            text:   "Inicio",
+            url:    "/inicio",
+            icon:   <HomeIcon/>,
         },
         {
             id:     2,
@@ -119,7 +123,7 @@ const  NavBar = (props) => {
             id:     5,
             text:   "Config",
             url:    "config",
-            icon:   <AccessTime/>,
+            icon:   <SettingsIcon/>,
         }
     ]
     
@@ -159,41 +163,49 @@ const  NavBar = (props) => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div" align="center">
+                    <Grid container spacing={1}>
+                    <Grid item xs={5}/>
+                        <Grid item xs={2}>
+                            <Typography variant="h6" noWrap component="div" align="center">
                         Subscriptor Manager
                     </Typography>
-                    {auth && (
-                        <div>
-                            <IconButton
-                                size="large"
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleMenu}
-                                color="inherit"
-                            >
-                                <AccountCircle />
-                            </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorEl}
-                                anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                                }}
-                                open={Boolean(anchorEl)}
-                                onClose={handleClose}
-                            >
-                                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                <MenuItem onClick={handleClose}>My account</MenuItem>
-                            </Menu>
-                        </div>
-                    )}
+                        </Grid>
+                        <Grid item xs={4}/>
+                        <Grid item xs={1}>
+                            {auth && (
+                                <div>
+                                    <IconButton
+                                        size="large"
+                                        aria-label="account of current user"
+                                        aria-controls="menu-appbar"
+                                        aria-haspopup="true"
+                                        onClick={handleMenu}
+                                        color="inherit"
+                                    >
+                                        <AccountCircle />
+                                    </IconButton>
+                                    <Menu
+                                        id="menu-appbar"
+                                        anchorEl={anchorEl}
+                                        anchorOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                        }}
+                                        keepMounted
+                                        transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'right',
+                                        }}
+                                        open={Boolean(anchorEl)}
+                                        onClose={handleClose}
+                                    >
+                                        <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                        <MenuItem onClick={handleClose}>Logout</MenuItem>
+                                    </Menu>
+                                </div>
+                            )}
+                        </Grid>
+                    </Grid>
                 </Toolbar>
             </AppBar>
             <Drawer variant="permanent" open={open}>
