@@ -1,5 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, Fragment} from 'react';
 import { styled, useTheme } from '@mui/material/styles';
+import Welcome from './Welcome';
+import Test from '../Test';
+import Home from './Home';
+//import DrawerData from './DrawerData';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
@@ -15,19 +19,15 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import Welcome from './Welcome';
-import Test from './Test';
-import Home from './Home';
-//import DrawerData from './DrawerData';
+
 import AccessTime from '@mui/icons-material/AccessTime'
+import { NavLink, Link } from "react-router-dom";
 
-import {
-    NavLink, Link
-  } from "react-router-dom";
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const openedMixin = (theme) => ({
     width: drawerWidth,
@@ -89,12 +89,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 const  NavBar = (props) => {
-    
-    const theme = useTheme();
-    const [open, setOpen] = useState(false);
-
-    const handleDrawerOpen = () => { setOpen(true) }
-    const handleDrawerClose = () => { setOpen(false) }
 
     const DrawerData = [
         {
@@ -120,12 +114,39 @@ const  NavBar = (props) => {
             text:   "Home",
             url:    "home",
             icon:   <AccessTime/>,
+        },
+        {
+            id:     5,
+            text:   "Config",
+            url:    "config",
+            icon:   <AccessTime/>,
         }
     ]
+    
+    const theme = useTheme();
+    const [open, setOpen] = useState(false);
+
+    const handleDrawerOpen = () => { setOpen(true) }
+    const handleDrawerClose = () => { setOpen(false) }
+
+    const [auth, setAuth] = React.useState(true);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+  
+    const handleChange = (event) => {
+        setAuth(event.target.checked);
+    };
+  
+    const handleMenu = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+  
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <AppBar position="fixed" open={open} color="secondary">
+            <AppBar position="fixed" open={open} color="error">
                 <Toolbar>
                     <IconButton
                     color="inherit"
@@ -138,12 +159,41 @@ const  NavBar = (props) => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    
-                    <Link to="/">
-                    <Typography variant="h6" noWrap component="div" align="center">Subscriptor Manager
+                    <Typography variant="h6" noWrap component="div" align="center">
+                        Subscriptor Manager
                     </Typography>
-                    </Link>
-                        
+                    {auth && (
+                        <div>
+                            <IconButton
+                                size="large"
+                                aria-label="account of current user"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleMenu}
+                                color="inherit"
+                            >
+                                <AccountCircle />
+                            </IconButton>
+                            <Menu
+                                id="menu-appbar"
+                                anchorEl={anchorEl}
+                                anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                                }}
+                                open={Boolean(anchorEl)}
+                                onClose={handleClose}
+                            >
+                                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                <MenuItem onClick={handleClose}>My account</MenuItem>
+                            </Menu>
+                        </div>
+                    )}
                 </Toolbar>
             </AppBar>
             <Drawer variant="permanent" open={open}>
@@ -154,15 +204,17 @@ const  NavBar = (props) => {
                 </DrawerHeader>
                 <Divider />
                 <List>
-                    {DrawerData.map((item) => {
-                        const {text, icon, url } = item;
+                    {DrawerData.map((item) => { const {text, icon, url, id } = item;
                         return(
-                            <ListItem button key={text}>
-                                <NavLink to={url}>
+                            <Fragment key={id}>
+                            <NavLink to={url}>
+                                <ListItem button key={id}>
                                     <ListItemIcon >{icon}</ListItemIcon>
                                     <ListItemText primary={text} />
-                                </NavLink>
-                            </ListItem>
+                                </ListItem>
+                                <Divider/>
+                            </NavLink>    
+                            </Fragment>                        
                         );
                     })}
                 </List>
