@@ -1,8 +1,8 @@
 import React, {useState, Fragment} from 'react';
 import { styled, useTheme } from '@mui/material/styles';
-import Welcome from './Welcome';
+import Welcome from '../vistas/Welcome';
 import Test from '../Test';
-import Home from './Home';
+import Home from '../vistas/Home';
 //import DrawerData from './DrawerData';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';

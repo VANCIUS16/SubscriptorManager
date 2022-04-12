@@ -14,13 +14,15 @@ export default function TextRequired(props) {
     >
       <div>
         <TextField
-          error={props.error}
           required
           fullWidth 
+          size="small"
+          variant={props.variant}
+          error={props.error}
           label={props.label}
           id={props.id}
-          size="small"
           helperText={props.helperText}
+          onChange={props.change}
         />
       </div>
     </Box>
