@@ -129,24 +129,13 @@ const  NavBar = (props) => {
     
     const theme = useTheme();
     const [open, setOpen] = useState(false);
-
     const handleDrawerOpen = () => { setOpen(true) }
     const handleDrawerClose = () => { setOpen(false) }
-
     const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
-  
-    const handleChange = (event) => {
-        setAuth(event.target.checked);
-    };
-  
-    const handleMenu = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-  
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    const handleChange = (event) => { setAuth(event.target.checked) };
+    const handleMenu = (event) => { setAnchorEl(event.currentTarget) };
+    const handleClose = () => { setAnchorEl(null) };
 
     return (
         <Box sx={{ display: 'flex' }}>

@@ -8,6 +8,7 @@ const ButtonPrimary = (props) => {
     color={props.color}
     variant={props.variant}
     onClick={props.click}
+    size={props.size}
     >
       {props.text}
     </Button>

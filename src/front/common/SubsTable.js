@@ -20,6 +20,8 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
+import CardComponent from '../../components/surfaces/CardComponent';
+import { Grid } from '@mui/material';
 
 function createData(name, calories, fat, carbs, protein) {
     return {
@@ -253,6 +255,7 @@ export default function SubsTable() {
             <Paper sx={{ width: '100%', mb: 2 }}>
                 <EnhancedTableToolbar numSelected={selected.length}/>
                 <TableContainer>
+                   
                     <Table
                         sx={{ minWidth: 750 }}
                         aria-labelledby="tableTitle"
@@ -322,8 +325,8 @@ export default function SubsTable() {
             </Paper>
             <FormControlLabel
                 control={<Switch checked={dense} onChange={handleChangeDense} />}
-                label="Colapsar tabla"
-            />                            
+                label="Contraer Tabla"
+            />                
         </Box>
     );
 }
