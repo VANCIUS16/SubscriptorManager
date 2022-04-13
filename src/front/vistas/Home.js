@@ -10,9 +10,9 @@ const Home = () => {
         obtenerDatos()
     }, [])*/
     
-    useEffect(()=>{
+   /* useEffect(()=>{
         const url='localhost:8080/Api/Sub'
-        const peticion =fetch(url)
+        const peticion = fetch(url)
         peticion
         .then(datos=>datos.json())
         .then(lectura=>{
@@ -28,8 +28,23 @@ const Home = () => {
         console.log(data)
         console.log(users)
         setEquipo(users)
-    }
+    }*/
 
+    useEffect(() => {
+        // declare the data fetching function
+        const fetchData = async () => {
+            console.log("UseEffect")
+            const data = await fetch('localhost:8080/Api/Sub');
+            console.log(data);
+            console.log("data");
+
+        }
+      
+        // call the function
+        fetchData()
+          // make sure to catch any error
+          .catch(console.error);
+      }, [])
 
 
     return(

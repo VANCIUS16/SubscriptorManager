@@ -16,6 +16,7 @@ export default function DialogDeleteComponent(props) {
     const [open, setOpen] = React.useState(false);
     const [correo, setCorreo] = React.useState('');
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+    //console.log(correo)
     
     return (
         <>

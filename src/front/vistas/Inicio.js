@@ -10,9 +10,9 @@ import DialogDateComponent from '../../components/surfaces/DialogDateComponent';
 export default function Inicio() {
 
     const [word, setWord] = useState("Data");
-    console.log(word)
+    //console.log(word)
     const [fecha, setFecha] = React.useState('');
-    console.log(fecha)
+    //console.log(fecha)
 
     return (
         <Box>
@@ -47,15 +47,16 @@ export default function Inicio() {
                         Cuerpo1 ="Aqui podrás editar un suscriptor existente de tu cuenta!"
                         boton={
                             <DialogDateComponent 
-                            variant="contained" 
-                            boton="Abir" 
-                            color="warning" 
-                            size="small"
-                            titulo="EDITAR SUSCRIPTOR"
-                            dialogo="Muy fácil!!! Modifica los datos que quieras cambiar, dale a 'Guardar' y listo!!!"
-                            tituloFecha="Modificar Fecha de Subscripción"
-                            change={e => setFecha(e.target.value)}
-                        />}
+                                variant="contained" 
+                                boton="Abir" 
+                                color="warning" 
+                                size="small"
+                                titulo="EDITAR SUSCRIPTOR"
+                                dialogo="Muy fácil!!! Modifica los datos que quieras cambiar, dale a 'Guardar' y listo!!!"
+                                tituloFecha="Modificar Fecha de Subscripción"
+                                change={e => setFecha(e.target.value)}
+                            />
+                        }
                     />
                 </Grid>
                 <Grid item xs={2}/>

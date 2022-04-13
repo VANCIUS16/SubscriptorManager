@@ -17,9 +17,10 @@ export default function TextRequired(props) {
           required
           fullWidth 
           size="small"
+          label={props.label}
+          name={props.name}
           variant={props.variant}
           error={props.error}
-          label={props.label}
           id={props.id}
           helperText={props.helperText}
           onChange={props.change}
