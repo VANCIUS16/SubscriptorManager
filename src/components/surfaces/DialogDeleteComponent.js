@@ -16,7 +16,12 @@ export default function DialogDeleteComponent(props) {
     const [open, setOpen] = React.useState(false);
     const [correo, setCorreo] = React.useState('');
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
-    //console.log(correo)
+    console.log(correo)
+
+    const handleClose = () => { 
+        setOpen(false)
+        setCorreo('')
+    };
     
     return (
         <>
@@ -30,7 +35,7 @@ export default function DialogDeleteComponent(props) {
             <Dialog
                 fullScreen={fullScreen}
                 open={open}
-                onClose={() => {setOpen(false);}}
+                onClose={handleClose}
                 aria-labelledby="DialogDeleteComponent"
             >
                 <DialogTitle id="DialogDeleteComponent">
@@ -52,12 +57,12 @@ export default function DialogDeleteComponent(props) {
                         text="Aceptar"
                         variant="outlined"
                         color="error"
-                        click={() => { props.changeWord("Hola"); setOpen(false); }}
+                        click={() => { props.changeWord("Hola") }}
                     />
                     <ButtonPrimary
                         text="Cancelar"
                         variant="outlined"
-                        click={() => {setOpen(false);}}
+                        click={handleClose}
                     />
                 </DialogActions>
             </Dialog>

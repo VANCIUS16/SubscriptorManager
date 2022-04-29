@@ -10,7 +10,7 @@ import DialogDateComponent from '../../components/surfaces/DialogDateComponent';
 export default function Inicio() {
 
     const [word, setWord] = useState("Data");
-    //console.log(word)
+    console.log(word)
     const [fecha, setFecha] = React.useState('');
     //console.log(fecha)
 

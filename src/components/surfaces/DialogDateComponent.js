@@ -34,15 +34,20 @@ export default function DialogDateComponent(props) {
         'Correo' : correo,
         'Fecha' : fecha
     }
-    //console.log(frmdetails);
-    
-
+    console.log(frmdetails);
 
     //console.log(data)
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
     const handleClickOpen = () => { setOpen(true) };
-    const handleClose = () => { setOpen(false) };
+    const handleClose = () => { 
+        setOpen(false)
+        setNickanme('')
+        setNombre('')
+        setApellido('')
+        setCorreo('')
+        setFecha('')
+    };
 
     return (
         <>
