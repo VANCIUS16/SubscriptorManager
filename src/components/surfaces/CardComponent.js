@@ -11,7 +11,7 @@ export default function CardComponent(props) {
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>{props.Titulo1}</Typography>
-        <Typography variant="h5" component="div">{props.Titulo2}</Typography>
+        <Typography variant="h5" component="div">{props.Titulo2} {props.IconTitle}</Typography>
         <Typography sx={{ mb: 1.5 }} color="text.secondary">{props.SubTitulo1}</Typography>
         <Typography variant="body2">{props.Cuerpo1}<br />{props.Cuerpo2}</Typography>
       </CardContent>

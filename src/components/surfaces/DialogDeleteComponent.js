@@ -15,13 +15,25 @@ export default function DialogDeleteComponent(props) {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
     const [correo, setCorreo] = React.useState('');
+    const [imputError, setImputError] = React.useState(false);
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
     console.log(correo)
 
     const handleClose = () => { 
         setOpen(false)
         setCorreo('')
+        setImputError(false) 
     };
+
+    const SendData = () => {        
+        if(correo === '' || correo === 0){
+            console.log("Faltan campos")
+            setImputError(true) 
+        }else{
+            handleClose()
+            console.log("Campos llenados")
+        }
+    }
     
     return (
         <>
@@ -39,7 +51,7 @@ export default function DialogDeleteComponent(props) {
                 aria-labelledby="DialogDeleteComponent"
             >
                 <DialogTitle id="DialogDeleteComponent">
-                <Typography variant="h4.secondary" align="left" gutterBottom component="div">{props.titulo}</Typography>
+                <Typography variant="h4.secondary" align="left" gutterBottom component="div">{props.titulo} {props.IconTitle}</Typography>
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
@@ -48,6 +60,7 @@ export default function DialogDeleteComponent(props) {
                     <TextRequired
                         label="Correo"
                         variant="outlined"
+                        error={imputError}
                         change={e => setCorreo(e.target.value)}
                     />
                 </DialogContent>
@@ -57,7 +70,7 @@ export default function DialogDeleteComponent(props) {
                         text="Aceptar"
                         variant="outlined"
                         color="error"
-                        click={() => { props.changeWord("Hola") }}
+                        click={SendData}
                     />
                     <ButtonPrimary
                         text="Cancelar"

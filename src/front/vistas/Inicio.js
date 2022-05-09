@@ -6,6 +6,9 @@ import SubsTable from '../common/SubsTable';
 import CardComponent from '../../components/surfaces/CardComponent';
 import DialogDeleteComponent from '../../components/surfaces/DialogDeleteComponent';
 import DialogDateComponent from '../../components/surfaces/DialogDateComponent';
+import AddReactionIcon from '@mui/icons-material/AddReaction';
+import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
+import EditIcon from '@mui/icons-material/Edit';
 
 export default function Inicio() {
 
@@ -25,7 +28,8 @@ export default function Inicio() {
                 <Grid item xs={2}/>
                 <Grid item xs={2}>
                     <CardComponent
-                        Titulo2 ="Agregar Suscriptor"
+                        Titulo2 = "Agregar Suscriptor"
+                        IconTitle = {<AddReactionIcon color="success"/>}
                         Cuerpo1 ="Aqui podrás agregar un suscriptor nuevo a tu cuenta!"
                         boton={
                             <DialogDateComponent 
@@ -34,8 +38,8 @@ export default function Inicio() {
                             color="success" 
                             size="small"
                             titulo="NUEVOS SUSCRIPTOR!!!"
-                            dialogo="Ya casi!! Por favor llena los campos requeridos para agregar exitosamente a un usuario nuevo!!!"
-                            tituloFecha="Agregar Fecha de Subscripción"
+                            IconTitle = {<AddReactionIcon color="success" fontSize='small'/>}
+                            dialogo="Ya casi!! Por favor llena todos los campos para agregar un usuario nuevo!!!"
                             change={e => setFecha(e.target.value)}
                         />}
                     />
@@ -44,6 +48,7 @@ export default function Inicio() {
                 <Grid item xs={1}>
                 <CardComponent
                         Titulo2 ="Editar Suscriptor"
+                        IconTitle={<EditIcon color="warning"/>}
                         Cuerpo1 ="Aqui podrás editar un suscriptor existente de tu cuenta!"
                         boton={
                             <DialogDateComponent 
@@ -52,6 +57,7 @@ export default function Inicio() {
                                 color="warning" 
                                 size="small"
                                 titulo="EDITAR SUSCRIPTOR"
+                                IconTitle = {<EditIcon color="warning" fontSize='small'/>}
                                 dialogo="Muy fácil!!! Modifica los datos que quieras cambiar, dale a 'Guardar' y listo!!!"
                                 tituloFecha="Modificar Fecha de Subscripción"
                                 change={e => setFecha(e.target.value)}
@@ -63,6 +69,7 @@ export default function Inicio() {
                 <Grid item xs={1}>
                 <CardComponent
                         Titulo2="Eliminar Suscriptor"
+                        IconTitle={<PersonRemoveIcon color="error"/>}
                         Cuerpo1="Aqui podrás remover a un suscriptor de tu cuenta!"
                         boton={
                             <DialogDeleteComponent 
@@ -71,6 +78,7 @@ export default function Inicio() {
                             color="error" 
                             size="small"
                             titulo="REMOVER SUSCRIPTOR!!!"
+                            IconTitle = {<PersonRemoveIcon color="error" fontSize='small'/>}
                             dialogo="Selecciona el suscriptor que quieras remover
                             ya lo podras agreguar de nuevo!!!"
                             changeWord={word => setWord(word)}

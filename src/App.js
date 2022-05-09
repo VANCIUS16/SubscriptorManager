@@ -18,7 +18,7 @@ export default function App() {
       <CssBaseline />
       <NavBar main={
         <Routes>
-          {/*<Route path='/login'    element={<Login/>}/>*/}
+          {<Route path='/login'    element={<Login/>}/>}
           <Route                    element={<ProtectedRoutes/>}>
             <Route path='/'         element={<Welcome/>}/>
             <Route path='/inicio'   element={<Inicio/>}/>
