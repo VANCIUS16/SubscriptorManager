@@ -68,12 +68,8 @@ export default function DialogDateComponent(props) {
 
     const SendData = () => {        
         if(nickanme === '' || nickanme === 0 || nombre === '' || nombre === 0 || 
-        apellido === '' || apellido === 0 || correo === '' || correo === 0){
-            /*
-            if (setImputError(true)){
-                console.log("Se envió la data")
-            }
-            */ 
+        apellido === '' || apellido === 0 || correo === '' || correo === 0 ||
+        fecha === '' || fecha === 0){
             console.log("Faltan campos")
             setImputError(true) 
         }else{

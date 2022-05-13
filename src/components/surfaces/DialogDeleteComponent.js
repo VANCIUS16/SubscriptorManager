@@ -55,7 +55,7 @@ export default function DialogDeleteComponent(props) {
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        <Typography variant="h4.secondary" align="left" gutterBottom component="div">{props.dialogo}</Typography>
+                        <Typography variant="h4.secondary" align="left" gutterBottom component="div" color='error'>{props.dialogo}</Typography>
                     </DialogContentText>
                     <TextRequired
                         label="Correo"
