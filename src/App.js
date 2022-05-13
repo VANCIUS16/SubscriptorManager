@@ -12,6 +12,8 @@ import Config from './front/settings/Config';
 import ProtectedRoutes from './back/ProtectedRoutes';
 import Inicio from './front/vistas/Inicio';
 
+document.body.style = 'background: #e8e8e8;'; //style="background-color: #b8b5b5"
+
 export default function App() {
   return (
     <Router>
