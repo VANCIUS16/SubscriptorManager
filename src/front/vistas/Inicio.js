@@ -42,7 +42,7 @@ export default function Inicio() {
                                 <DialogDateComponent 
                                     variant="contained" 
                                     boton="Abir" 
-                                    color="success" 
+                                    color="#3fb42d" //#3fb42d
                                     size="small"
                                     titulo="NUEVOS SUSCRIPTOR!!!"
                                     IconTitle = {<AddReactionIcon color="success" fontSize='small'/>}
@@ -57,7 +57,7 @@ export default function Inicio() {
                                 <DialogDateComponent 
                                     variant="contained" 
                                     boton="Abir" 
-                                    color="warning" 
+                                    color="#d3b20f"//#d3b20f 
                                     size="small"
                                     titulo="EDITAR SUSCRIPTOR"
                                     IconTitle = {<EditIcon color="warning" fontSize='small'/>}
@@ -74,7 +74,7 @@ export default function Inicio() {
                                 <DialogDeleteComponent 
                                 variant="contained" 
                                 boton="Abir" 
-                                color="error" 
+                                color="#b50000" //#b50000 
                                 size="small"
                                 titulo="REMOVER SUSCRIPTOR!!!"
                                 IconTitle = {<PersonRemoveIcon color="error" fontSize='small'/>}
@@ -107,8 +107,8 @@ export default function Inicio() {
                     </Typography>
                     <Stack
                         direction="row"
-                        divider={<Divider orientation="vertical" flexItem />}
-                        spacing={2}
+                        divider={<Divider/>}
+                        spacing={8}
                     >
                         <CardComponent
                             Titulo2 = "Grafica 1"

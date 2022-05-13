@@ -1,5 +1,5 @@
 import React, {useState, Fragment} from 'react';
-import { styled, useTheme } from '@mui/material/styles';
+import { styled, useTheme, createTheme  } from '@mui/material/styles';
 import Welcome from '../vistas/Welcome';
 import Test from '../Test';
 import Home from '../vistas/Home';
@@ -9,7 +9,6 @@ import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -21,14 +20,11 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HomeIcon from '@mui/icons-material/Home';
-
 import AccessTime from '@mui/icons-material/AccessTime'
 import { NavLink, Link } from "react-router-dom";
-
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-
 import Grid from '@mui/material/Grid';
 
 const drawerWidth = 200;
@@ -92,7 +88,23 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 );
 
-const  NavBar = (props) => {
+const theme = createTheme({
+    status: {
+      danger: '#e53e3e',
+    },
+    palette: {
+      primary: {
+        main: '#0971f1',
+        darker: '#053e85',
+      },
+      neutral: {
+        main: '#64748B',
+        contrastText: '#fff',
+      },
+    },
+});
+  
+export default function NavBar(props) {
 
     const DrawerData = [
         {
@@ -139,7 +151,13 @@ const  NavBar = (props) => {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <AppBar position="fixed" open={open} color="error">
+            <AppBar position="fixed" open={open}  sx={{
+            bgcolor: '#c60000',
+            color:'#fff',
+            fontWeight: 'bold',
+            mx: 0.5,
+            fontSize: 14,
+          }}>
                 <Toolbar>
                     <IconButton
                     color="inherit"
@@ -226,5 +244,3 @@ const  NavBar = (props) => {
         </Box>
     );
 }
-
-export default NavBar

@@ -56,12 +56,12 @@ export default function SegmentChart() {
           segment: {
             borderColor: function (context) {
               if (context.type === "segment") {
-                return context.p1DataIndex % 2 === 0 ? "red" : "green";
+                return context.p1DataIndex % 2 === 0 ? "#d8a4a4" : "#b7d8a4";
               }
             },
             backgroundColor: function (context) {
               if (context.type === "segment") {
-                return context.p1DataIndex % 2 === 0 ? "red" : "green";
+                return context.p1DataIndex % 2 === 0 ? "#d8a4a4" : "#b7d8a4";
               }
             },
           },

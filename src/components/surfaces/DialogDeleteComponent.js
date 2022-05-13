@@ -7,6 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import ButtonPrimary from '../buttons/ButtonPrimary';
+import ButtonColor from '../buttons/ButtonColor';
 import Typography from '@mui/material/Typography';
 import TextRequired from '../textField/TextRequired';
 
@@ -37,7 +38,7 @@ export default function DialogDeleteComponent(props) {
     
     return (
         <>
-            <ButtonPrimary
+            <ButtonColor
                 text={props.boton}
                 variant={props.variant}
                 color={props.color}

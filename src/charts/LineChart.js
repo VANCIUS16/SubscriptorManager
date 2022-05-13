@@ -47,7 +47,7 @@ export default function LineChart() {
     return {
       datasets: [
         {
-          label: "Mis datos",
+          label: "Mis datos (1)",
           data: scores,
           tension: 0.3,
           borderColor: "rgb(75, 192, 192)",

@@ -7,6 +7,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import ButtonPrimary from '../buttons/ButtonPrimary';
+import ButtonColor from '../buttons/ButtonColor';
 import Typography from '@mui/material/Typography';
 import TextRequired from '../textField/TextRequired';
 import DatepickerComponent from '../textField/DatepickerComponent';
@@ -80,7 +81,7 @@ export default function DialogDateComponent(props) {
 
     return (
         <>
-            <ButtonPrimary
+            <ButtonColor
                 text={props.boton}
                 variant={props.variant}
                 color={props.color}
@@ -133,8 +134,8 @@ export default function DialogDateComponent(props) {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <ButtonPrimary autoFocus click={SendData} text="Aceptar"/>
-                    <ButtonPrimary click={handleClose} autoFocus text="Cancelar"/>
+                    <ButtonPrimary autoFocus click={SendData} text="Aceptar" variant="outlined" color="success"/>
+                    <ButtonPrimary click={handleClose} autoFocus text="Cancelar" variant="outlined" color="error"/>
                 </DialogActions>
             </Dialog>
         </>
