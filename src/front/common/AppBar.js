@@ -9,7 +9,6 @@ import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
@@ -21,18 +20,15 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import SettingsIcon from '@mui/icons-material/Settings';
 import HomeIcon from '@mui/icons-material/Home';
-
 import AccessTime from '@mui/icons-material/AccessTime'
 import { NavLink, Link } from "react-router-dom";
-
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-
 import Grid from '@mui/material/Grid';
+import NavBar from './NavBar';
 
 const drawerWidth = 200;
-
 const openedMixin = (theme) => ({
     width: drawerWidth,
     transition: theme.transitions.create('width', {
@@ -41,7 +37,6 @@ const openedMixin = (theme) => ({
     }),
     overflowX: 'hidden',
 });
-
 const closedMixin = (theme) => ({
     transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
@@ -53,7 +48,6 @@ const closedMixin = (theme) => ({
         width: `calc(${theme.spacing(9)} + 1px)`,
     },
 });
-
 const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
@@ -62,8 +56,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
 }));
-
-const AppBar = styled(MuiAppBar, {
+const AppBars = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
     })(({ theme, open }) => ({
         zIndex: theme.zIndex.drawer + 1,
@@ -80,7 +73,6 @@ const AppBar = styled(MuiAppBar, {
         }),
     }),
 }));
-
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
     ({ theme, open }) => ({
         width: drawerWidth,
@@ -92,41 +84,41 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 );
 
-const  NavBar = (props) => {
+const DrawerData = [
+    {
+        id:     1,
+        text:   "Inicio",
+        url:    "/inicio",
+        icon:   <HomeIcon/>,
+    },
+    {
+        id:     2,
+        text:   "Login",
+        url:    "login",
+        icon:   <AccessTime/>,
+    },
+    {
+        id:     3,
+        text:   "Test",
+        url:    "test",
+        icon:   <AccessTime/>,
+    },
+    {
+        id:     4,
+        text:   "Home",
+        url:    "home",
+        icon:   <AccessTime/>,
+    },
+    {
+        id:     5,
+        text:   "Config",
+        url:    "config",
+        icon:   <SettingsIcon/>,
+    }
+]
 
-    const DrawerData = [
-        {
-            id:     1,
-            text:   "Inicio",
-            url:    "/inicio",
-            icon:   <HomeIcon/>,
-        },
-        {
-            id:     2,
-            text:   "Login",
-            url:    "login",
-            icon:   <AccessTime/>,
-        },
-        {
-            id:     3,
-            text:   "Test",
-            url:    "test",
-            icon:   <AccessTime/>,
-        },
-        {
-            id:     4,
-            text:   "Home",
-            url:    "home",
-            icon:   <AccessTime/>,
-        },
-        {
-            id:     5,
-            text:   "Config",
-            url:    "config",
-            icon:   <SettingsIcon/>,
-        }
-    ]
-    
+export default function AppBar (){
+
     const theme = useTheme();
     const [open, setOpen] = useState(false);
     const handleDrawerOpen = () => { setOpen(true) }
@@ -137,9 +129,10 @@ const  NavBar = (props) => {
     const handleMenu = (event) => { setAnchorEl(event.currentTarget) };
     const handleClose = () => { setAnchorEl(null) };
 
-    return (
-        <Box sx={{ display: 'flex' }}>
-            <AppBar position="fixed" open={open} color="error">
+    return(
+        <>
+                <Box sx={{ display: 'flex' }}>
+            <AppBars position="fixed" open={open} color="error">
                 <Toolbar>
                     <IconButton
                     color="inherit"
@@ -196,35 +189,9 @@ const  NavBar = (props) => {
                         </Grid>
                     </Grid>
                 </Toolbar>
-            </AppBar>
-            <Drawer variant="permanent" open={open}>
-                <DrawerHeader>
-                    <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                    </IconButton>
-                </DrawerHeader>
-                <Divider />
-                <List>
-                    {DrawerData.map((item) => { const {text, icon, url, id } = item;
-                        return(
-                            <Fragment key={id}>
-                            <NavLink to={url}>
-                                <ListItem button key={id}>
-                                    <ListItemIcon >{icon}</ListItemIcon>
-                                    <ListItemText primary={text} />
-                                </ListItem>
-                                <Divider/>
-                            </NavLink>    
-                            </Fragment>                        
-                        );
-                    })}
-                </List>
-            </Drawer>
-            <Box component="main" sx={{ flexGrow: 1, p: 3 }}><DrawerHeader />
-               {props.main}
-            </Box>
+            </AppBars>
+            <NavBar/>
         </Box>
-    );
+        </>
+    )
 }
-
-export default NavBar

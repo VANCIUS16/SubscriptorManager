@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Config from './front/settings/Config';
 import ProtectedRoutes from './back/ProtectedRoutes';
 import Inicio from './front/vistas/Inicio';
+import AppBar from './front/common/AppBar';
 
 document.body.style = 'background: #e8e8e8;'; //style="background-color: #b8b5b5"
 
