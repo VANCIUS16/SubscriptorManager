@@ -16,13 +16,13 @@ import BarChart from '../../charts/BarChart';
 import SegmentChart from '../../charts/SegmentChart';
 import BarChartIcon from '@mui/icons-material/BarChart';
 
-export default function Inicio() {
+export default function Inicio2() {
 
     return (
         <>
             <Card sx={{ minWidth: 275 }}>
                 <CardContent>
-                    <Typography variant="h4" align="left" gutterBottom component="div" color={'AppWorkspace'}>
+                    <Typography variant="h4" align="left" gutterBottom component="div" sx={{color: '#FF5733'}}>
                         Bienvenido a tu WORKSPACE
                     </Typography>
                     <Typography variant="h4.secondary" align="left" gutterBottom component="div">
@@ -86,7 +86,7 @@ export default function Inicio() {
             <br/>
             <Card sx={{ minWidth: 275 }}>
                 <CardContent>
-                    <Typography variant="h4" align="left" gutterBottom component="div" color={'AppWorkspace'}>
+                    <Typography variant="h4" align="left" gutterBottom component="div" sx={{color: '#FF5733'}}>
                         Tabla de Suscriptores
                     </Typography>
                     <Typography variant="h4.secondary" align="left" gutterBottom component="div">
@@ -98,7 +98,7 @@ export default function Inicio() {
             <br/>
             <Card  sx={{ minWidth: 275 }}>
                 <CardContent>
-                    <Typography variant="h4" align="left" gutterBottom component="div" color={'AppWorkspace'}>
+                    <Typography variant="h4" align="left" gutterBottom component="div" sx={{color: '#FF5733'}}>
                         Bienvenido a tus Gráficas
                     </Typography>
                     <Typography variant="h4.secondary" align="left" gutterBottom component="div">

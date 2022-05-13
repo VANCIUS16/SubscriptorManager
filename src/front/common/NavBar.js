@@ -90,17 +90,17 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const theme = createTheme({
     status: {
-      danger: '#e53e3e',
+        danger: '#e53e3e',
     },
     palette: {
-      primary: {
-        main: '#0971f1',
-        darker: '#053e85',
-      },
-      neutral: {
-        main: '#64748B',
-        contrastText: '#fff',
-      },
+        primary: {
+            main: '#0971f1',
+            darker: '#053e85',
+        },
+        neutral: {
+            main: '#64748B',
+            contrastText: '#fff',
+        },
     },
 });
   
@@ -111,31 +111,37 @@ export default function NavBar(props) {
             id:     1,
             text:   "Inicio",
             url:    "/inicio",
-            icon:   <HomeIcon/>,
+            icon:   <HomeIcon sx={{color: "#397a31"}}/>,
         },
         {
             id:     2,
             text:   "Login",
             url:    "login",
-            icon:   <AccessTime/>,
+            icon:   <AccessTime sx={{color: "#df0000"}}/>,
         },
         {
             id:     3,
             text:   "Test",
             url:    "test",
-            icon:   <AccessTime/>,
+            icon:   <AccessTime sx={{color: "#df0000"}}/>,
         },
         {
             id:     4,
             text:   "Home",
             url:    "home",
-            icon:   <AccessTime/>,
+            icon:   <AccessTime sx={{color: "#df0000"}}/>,
         },
         {
             id:     5,
             text:   "Config",
             url:    "config",
-            icon:   <SettingsIcon/>,
+            icon:   <SettingsIcon sx={{color: "#000"}}/>,
+        },
+        {
+            id:     6,
+            text:   "Inicio 2",
+            url:    "/inicio2",
+            icon:   <HomeIcon sx={{color: "#397a31"}}/>,
         }
     ]
     
@@ -151,13 +157,13 @@ export default function NavBar(props) {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <AppBar position="fixed" open={open}  sx={{
-            bgcolor: '#c60000',
-            color:'#fff',
-            fontWeight: 'bold',
-            mx: 0.5,
-            fontSize: 14,
-          }}>
+            <AppBar 
+            position="fixed" 
+            open={open}  
+            sx={{
+                bgcolor: '#c60000',
+                color:'#e8e8e8'
+            }}>
                 <Toolbar>
                     <IconButton
                     color="inherit"
@@ -174,8 +180,8 @@ export default function NavBar(props) {
                     <Grid item xs={5}/>
                         <Grid item xs={2}>
                             <Typography variant="h6" noWrap component="div" align="center">
-                        Subscriptor Manager
-                    </Typography>
+                                Subscriptor Manager
+                            </Typography>
                         </Grid>
                         <Grid item xs={4}/>
                         <Grid item xs={1}>
@@ -229,7 +235,9 @@ export default function NavBar(props) {
                             <NavLink to={url}>
                                 <ListItem button key={id}>
                                     <ListItemIcon >{icon}</ListItemIcon>
-                                    <ListItemText primary={text} />
+                                    <ListItemText>
+                                    <Typography variant="text" component="div" sx={{color: "#000"}}>{text}</Typography>
+                                    </ListItemText>
                                 </ListItem>
                                 <Divider/>
                             </NavLink>    
