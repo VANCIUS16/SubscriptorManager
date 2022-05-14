@@ -21,35 +21,35 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 // #FF5733
 
 const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
+    palette: {
+        mode: 'dark',
+    },
 });
 //<ThemeProvider theme={darkTheme}></ThemeProvider>
 
 export default function App() {
 
-  const [color, setColor] = React.useState('#e8e8e8')
-  document.body.style = `background: ${color}`;
+    const [color, setColor] = React.useState('#e8e8e8')
+    document.body.style = `background: ${color}`;
 
-  return (
-      <Router>
-        <CssBaseline />
-        <NavBar main={
-          <Routes>
-            {<Route path='/login'    element={<Login/>}/>}
-              <Route                    element={<ProtectedRoutes/>}>
-                <Route path='/'         element={<Welcome/>}/>
-                <Route path='/inicio'   element={<Inicio/>}/>
-                <Route path='/inicio2'   element={<Inicio2/>}/>
-                <Route path='/test'     element={<Test/>}/>
-                <Route path='/config'   element={<Config title={<Child changeColor = {color => setColor(color)}/>}/>}/>
-                <Route path='/home'     element={<Home/>}/>
-                <Route path='/home/:id' element={<UserTest/>}/>
-                <Route path='*'         element={<PageNotFound/>}/>
-              </Route>
-          </Routes>
-        }/>
-      </Router>
-  );
+    return (
+        <Router>
+            <CssBaseline />
+            <NavBar main={
+                <Routes>
+                    {<Route path='/login'    element={<Login/>}/>}
+                        <Route                    element={<ProtectedRoutes/>}>
+                        <Route path='/'         element={<Welcome/>}/>
+                        <Route path='/inicio'   element={<Inicio/>}/>
+                        <Route path='/inicio2'   element={<Inicio2/>}/>
+                        <Route path='/test'     element={<Test/>}/>
+                        <Route path='/config'   element={<Config title={<Child changeColor = {color => setColor(color)}/>}/>}/>
+                        <Route path='/home'     element={<Home/>}/>
+                        <Route path='/home/:id' element={<UserTest/>}/>
+                        <Route path='*'         element={<PageNotFound/>}/>
+                    </Route>
+                </Routes>
+            }/>
+        </Router>
+    );
 }
