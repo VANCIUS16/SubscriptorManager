@@ -15,8 +15,9 @@ import LineChart from '../../charts/LineChart';
 import BarChart from '../../charts/BarChart';
 import SegmentChart from '../../charts/SegmentChart';
 import BarChartIcon from '@mui/icons-material/BarChart';
+import ButtonPrimary from '../../components/buttons/ButtonPrimary';
 
-export default function Inicio2() {
+export default function Inicio2(props) {
 
     return (
         <>

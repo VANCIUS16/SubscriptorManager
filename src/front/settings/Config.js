@@ -17,7 +17,7 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-export default function Config() {
+export default function Config(props) {
     return (
         <Card sx={{ minWidth: 275 }}>
             <CardContent>
@@ -82,16 +82,7 @@ export default function Config() {
                                 />
                         </Item>
                     </Grid>
-                    <Grid item xs={4}>
-                        <Item>
-                            <Typography color="text.secondary">Configuración 5</Typography>
-                            <ButtonPrimary
-                                text="Abrir"
-                                variant="outlined"
-                                color="secondary"
-                                />
-                        </Item>
-                    </Grid>
+                    {props.title}
                 </Grid>
             </CardContent>
         </Card>

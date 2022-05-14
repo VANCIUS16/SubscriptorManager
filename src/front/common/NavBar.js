@@ -114,6 +114,12 @@ export default function NavBar(props) {
             icon:   <HomeIcon sx={{color: "#397a31"}}/>,
         },
         {
+            id:     6,
+            text:   "Inicio 2",
+            url:    "/inicio2",
+            icon:   <HomeIcon sx={{color: "#FF5733"}}/>,
+        },
+        {
             id:     2,
             text:   "Login",
             url:    "login",
@@ -136,12 +142,6 @@ export default function NavBar(props) {
             text:   "Config",
             url:    "config",
             icon:   <SettingsIcon sx={{color: "#000"}}/>,
-        },
-        {
-            id:     6,
-            text:   "Inicio 2",
-            url:    "/inicio2",
-            icon:   <HomeIcon sx={{color: "#397a31"}}/>,
         }
     ]
     
