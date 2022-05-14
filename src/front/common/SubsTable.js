@@ -22,6 +22,7 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import CardComponent from '../../components/surfaces/CardComponent';
 import { Grid } from '@mui/material';
+import TocIcon from '@mui/icons-material/Toc';
 
 function createData(name, calories, fat, carbs, protein) {
     return {
@@ -84,31 +85,31 @@ const headCells = [
         id: 'name',
         numeric: false,
         disablePadding: true,
-        label: 'Dessert (100g serving)',
+        label: 'Nombre',
     },
     {
         id: 'calories',
         numeric: true,
         disablePadding: false,
-        label: 'Calories',
+        label: 'Nickname',
     },
     {
         id: 'fat',
         numeric: true,
         disablePadding: false,
-        label: 'Fat (g)',
+        label: 'Correo',
     },
     {
         id: 'carbs',
         numeric: true,
         disablePadding: false,
-        label: 'Carbs (g)',
+        label: 'Fecha Inicio',
     },
     {
         id: 'protein',
         numeric: true,
         disablePadding: false,
-        label: 'Protein (g)',
+        label: 'Edit',
     },
 ];
 
@@ -297,7 +298,7 @@ export default function SubsTable() {
                                         <TableCell align="right">{row.calories}</TableCell>
                                         <TableCell align="right">{row.fat}</TableCell>
                                         <TableCell align="right">{row.carbs}</TableCell>
-                                        <TableCell align="right">{row.protein}</TableCell>
+                                        <TableCell align="right">{<TocIcon/>}</TableCell>
                                     </TableRow>
                                 );
                             })}

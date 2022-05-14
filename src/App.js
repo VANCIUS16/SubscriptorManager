@@ -13,11 +13,19 @@ import PageNotFound from './back/PageNotFound';
 import CssBaseline from '@mui/material/CssBaseline';
 import ProtectedRoutes from './back/ProtectedRoutes';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 //sessionStorage.setItem('backgroundColor','#e8e8e8')
 //document.body.style = `background: ${sessionStorage.getItem('backgroundColor')}` ;
 // #e8e8e8 
 // #FF5733
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
+//<ThemeProvider theme={darkTheme}></ThemeProvider>
 
 export default function App() {
 
@@ -25,10 +33,7 @@ export default function App() {
   document.body.style = `background: ${color}`;
 
   return (
-    <div>
-      
       <Router>
-        
         <CssBaseline />
         <NavBar main={
           <Routes>
@@ -46,6 +51,5 @@ export default function App() {
           </Routes>
         }/>
       </Router>
-    </div>
   );
 }

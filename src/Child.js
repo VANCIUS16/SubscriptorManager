@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/material'
+import { Box, Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/material'
 import * as React from 'react'
 import ButtonPrimary from './components/buttons/ButtonPrimary'
 import { styled } from '@mui/material/styles';
@@ -32,7 +32,7 @@ const Child = (props) => {
             <Grid item xs={4}>
                 <Card sx={{ minWidth: 275 }}>
                     <CardContent>
-                    <Typography color="text.primary">Cambiar el fondo a Gris</Typography>
+                    <Typography color="text.primary">Modo Claro</Typography>
                     </CardContent>
                     <CardActions>
                     <ButtonPrimary
@@ -48,7 +48,7 @@ const Child = (props) => {
             <Grid item xs={4}>
                 <Card sx={{ minWidth: 275 }}>
                     <CardContent>
-                    <Typography color="text.primary">Cambiar el fondo a Naranja</Typography>
+                    <Typography color="text.primary">Modo Obscuro</Typography>
                     </CardContent>
                     <CardActions>
                     <ButtonPrimary
@@ -61,6 +61,38 @@ const Child = (props) => {
                     </CardActions>
                 </Card>
             </Grid>
+            <Card sx={{ minWidth: 275 }}>
+                <CardContent>
+                    <Box
+                    sx={{
+                        width: 150,
+                        height: 150,
+                        backgroundColor: 'primary.dark',
+                        '&:hover': {
+                        backgroundColor: 'primary.main',
+                        opacity: [0.9, 0.8, 0.7],
+                        },
+                    }}
+                >
+                    Modo Claro
+                </Box>
+                </CardContent>
+                <CardContent>
+                <Box
+                    sx={{
+                        width: 150,
+                        height: 150,
+                        backgroundColor: 'primary.dark',
+                        '&:hover': {
+                        backgroundColor: 'primary.main',
+                        opacity: [0.9, 0.8, 0.7],
+                        },
+                    }}
+                >
+                    Modo Obscuro
+                </Box>
+                </CardContent>
+            </Card>
         </>
     )
 }
